@@ -4,10 +4,17 @@ Feature: Testinium Challenge
     Given user navigates to trendyol web site
     And user closes popup
 
-  Scenario: Login Scenario
+  Scenario: Success Login Scenario
     Given user clicks sign in button
     Then user is on login page
     When user enters "baturtestmaili@gmail.com" and "12345asdfgASDFG"
     And user clicks login button
-    Then user is on main page
+    When user is on main page
+    Then login success
 
+  Scenario: Failed Login Scenario
+    Given user clicks sign in button
+    Then user is on login page
+    When user enters "test" and "test"
+    And user clicks login button
+    Then login fail error need to be displayed as "Lütfen geçerli bir e-posta adresi giriniz."

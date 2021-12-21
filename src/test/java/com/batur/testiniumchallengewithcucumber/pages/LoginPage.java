@@ -20,6 +20,7 @@ public class LoginPage extends BasePage {
     String my_account_label_xpath = "//p[contains(text(),'Hesabım')]";
     String home_page_wrapper_id = "browsing-gw-homepage";
     String mail_label_xpath = "//div[@class = 'user-loggedin-container']//p[@class = 'user-name']";
+    String login_error_message_xpath = "//span[@class ='message']";
 
     By email_textBox = By.id(email_textBox_id);
     By password_textBox = By.id(password_textBox_id);
@@ -27,6 +28,7 @@ public class LoginPage extends BasePage {
     By home_page_wrapper = By.id(home_page_wrapper_id);
     By my_account_label = By.xpath(my_account_label_xpath);
     By mail_label = By.xpath(mail_label_xpath);
+    By login_error_message = By.xpath(login_error_message_xpath);
 
 
     //Page Methods
@@ -50,5 +52,10 @@ public class LoginPage extends BasePage {
     public void checkMainPage() {
         checkElementIsVisible(home_page_wrapper);
     }
+
+    public String getLoginErrorMessage() {
+        return getText(login_error_message);
+    }
+
 
 }

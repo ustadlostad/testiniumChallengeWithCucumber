@@ -10,9 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseTest {
 
-    public static WebDriver driver;
-    public static WebDriverWait wait;
-    public static Actions actions;
+    static public WebDriver driver;
+    static public WebDriverWait wait;
+    static public Actions actions;
 
     public WebDriver getDriver() {
         return driver;
@@ -27,7 +27,7 @@ public class BaseTest {
     }
 
     @Before
-    public void setup(){
+    public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 10);
@@ -36,8 +36,8 @@ public class BaseTest {
     }
 
     @After
-    public void tearDown(){
-        //driver.close();
+    public void tearDown() {
+        driver.close();
     }
 
 }

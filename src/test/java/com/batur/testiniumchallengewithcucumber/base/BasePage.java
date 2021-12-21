@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 
-public class BasePage{
+public class BasePage {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -22,24 +22,24 @@ public class BasePage{
         this.actions = actions;
     }
 
-    public void navigate(String url){
+    public void navigate(String url) {
         driver.navigate().to(url);
     }
 
-    public void click(By by){
+    public void click(By by) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         wait.until(ExpectedConditions.elementToBeClickable(by));
         driver.findElement(by).click();
     }
 
-    public void setText(By by, String text){
+    public void setText(By by, String text) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         for (int i = 0; i < text.length(); i++) {
             driver.findElement(by).sendKeys(Character.toString(text.charAt(i)));
         }
     }
 
-    public String getText(By by){
+    public String getText(By by) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         return driver.findElement(by).getText();
     }
