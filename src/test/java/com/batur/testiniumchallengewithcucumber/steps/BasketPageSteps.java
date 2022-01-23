@@ -32,9 +32,9 @@ public class BasketPageSteps {
         itemCount = basketPage.increaseItemCountAndGetItemCount();
     }
 
-    @Then("it is checked that product number is {string}")
-    public void it_is_checked_that_product_number_is(String string) {
-        Assert.assertEquals(itemCount,"Actual and Expected Item Count is not equal!", string);
+    @Then("it is checked that product number is {int}")
+    public void it_is_checked_that_product_number_is(int integer) {
+        Assert.assertEquals(Integer.parseInt(itemCount), integer);
     }
 
     @And("user deletes product from basket")

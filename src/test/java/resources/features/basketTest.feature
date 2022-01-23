@@ -10,13 +10,13 @@ Feature: Testinium Challenge
     Then login success
 
   Scenario: Basket Test
-    Given user searches for "computer"
+    Given user searches for "bilgisayar"
     And user selects random product
     Then selected product info is written in to a file
     And user add product to basket
     Then product price and basket price are compared
     And user increases the product number
-    Then it is checked that product number is "2"
+    Then it is checked that product number is 2
     And user deletes product from basket
     Then basket is empty
 
