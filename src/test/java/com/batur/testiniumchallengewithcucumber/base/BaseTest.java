@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class BaseTest {
 
     static public WebDriver driver;
@@ -30,14 +32,14 @@ public class BaseTest {
     public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, 10);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         actions = new Actions(driver);
         driver.manage().window().maximize();
     }
 
     @After
     public void tearDown() {
-        driver.close();
+       // driver.close();
     }
 
 }

@@ -33,11 +33,11 @@ public class LoginPage extends BasePage {
 
     //Page Methods
     public void setEmail(String email) {
-        setText(email_textBox, email);
+        setText(email,email_textBox);
     }
 
     public void setPassword(String password) {
-        setText(password_textBox, password);
+        setText(password, password_textBox);
     }
 
     public void clickLoginButton() {

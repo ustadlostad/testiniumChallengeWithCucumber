@@ -1,14 +1,13 @@
 package com.batur.testiniumchallengewithcucumber.base;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class BasePage {
 
@@ -32,7 +31,7 @@ public class BasePage {
         driver.findElement(by).click();
     }
 
-    public void setText(By by, String text) {
+    public void setText(String text, By by) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         for (int i = 0; i < text.length(); i++) {
             driver.findElement(by).sendKeys(Character.toString(text.charAt(i)));
@@ -53,7 +52,7 @@ public class BasePage {
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(0));
         driver.close();
-        driver.switchTo().window(tabs.get(1));
+        driver.switchTo().window(tabs.  get(1));
     }
 
     public void hover(By by) throws InterruptedException {
@@ -70,6 +69,24 @@ public class BasePage {
             return false;
         }
         return true;
+    }
+
+    public void pressEnter(By by) {
+        driver.findElement(by).sendKeys(Keys.RETURN);
+    }
+
+    public void selectRandomObjectAndClick(By by) {
+        Random rnd = new Random();
+
+        List<WebElement> elementList = driver.findElements(by);
+        int listSize = elementList.size();
+        int randomNumber = rnd.nextInt(listSize);
+        WebElement element = elementList.get(randomNumber);
+        element.click();
+    }
+
+    public void refreshPage(){
+        driver.navigate().refresh();
     }
 
 }

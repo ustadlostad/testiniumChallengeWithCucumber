@@ -14,9 +14,6 @@ public class LoginPageSteps {
     LoginPage loginPage = new LoginPage(BaseTest.driver, BaseTest.wait, BaseTest.actions);
     LandingPage landingPage = new LandingPage(BaseTest.driver, BaseTest.wait, BaseTest.actions);
 
-    public LoginPageSteps(){
-    }
-
     @Given("user clicks sign in button")
     public void user_clicks_sign_in_button() {
         landingPage.clickLoginButton();
